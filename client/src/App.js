@@ -15,9 +15,9 @@ function App() {
         <>
           <Route exact path="/" component={Home} />
           <Switch>
-              <Route path="/high" component={High} />
-              <Route path="/low" component={Low} />
-              <Route path="/average" component={Average} />
+              <Route path="/latest-high-price" component={High} />
+              <Route path="/latest-low-price" component={Low} />
+              <Route path="/average-closing-price" component={Average} />
           </Switch>
         </>
       </Router>
