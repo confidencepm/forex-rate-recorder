@@ -6,9 +6,28 @@ export default class Average extends Component {
             <div>
                 <div className="card blue lighten-5">
                     <div className="card-content">
-                        <h6 className="mt-bottom">
+                        <h5 className="mt-bottom">
                             <strong>Average Closing Price</strong>
-                        </h6>
+                        </h5>
+                    </div>
+                    <div className="card-action">
+                        <table className='striped'>
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>EUR</th>
+                                <th>USD</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td></td>
+                                <td>1</td>
+                                <td>1.1924</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
