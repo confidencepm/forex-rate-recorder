@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-export default class High extends Component {
+export default class ExchangeRatesMonitor extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,7 +12,7 @@ export default class High extends Component {
         const _URL = "https://globalcurrencies.xignite.com/xGlobalCurrencies.json/GetBars";
         const params = new URLSearchParams();
         params.append("Symbol", "EURUSD");
-        params.append("AsOfDate", "2/5/2021");
+        params.append("AsOfDate", "2/3/2021");
         params.append("StartTime", "09:00");
         params.append("EndTime", "09:02");
         params.append("PriceType", "Mid");
