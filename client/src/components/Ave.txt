@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 export default class Ave extends Component {
     state = {
         loading: true,
-        rate: null
+        rates: null
     }
     async componentDidMount() {
         const _URL = "https://globalcurrencies.xignite.com/xGlobalCurrencies.json/GetRealTimeRate";
@@ -13,7 +13,7 @@ export default class Ave extends Component {
 
         const response = await fetch(_URL + "?" + params);
         const data = await response.json();
-        this.setState({rate: data, loading: false})
+        this.setState({rates: data, loading: false})
         console.log(data);
 
     }
@@ -21,7 +21,7 @@ export default class Ave extends Component {
         const _BASE_VALUE = 1;
         return (
             <div>
-                {this.state.loading || !this.state.rate ? (
+                {this.state.loading || !this.state.rates ? (
                     <div>
                         <div className="card blue lighten-5">
                             <div className="card-content">
@@ -55,10 +55,10 @@ export default class Ave extends Component {
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td>{this.state.rate.Date}</td>
-                                        <td>{this.state.rate.Time}</td>
+                                        <td>{this.state.rates.Date}</td>
+                                        <td>{this.state.rates.Time}</td>
                                         <td>{_BASE_VALUE}</td>
-                                        <td>{this.state.rate.Mid}</td>
+                                        <td>{this.state.rates.Mid}</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -74,7 +74,7 @@ export default class Ave extends Component {
 /**
  * state = {
         loading: true,
-        rate: null
+        rates: null
     }
  async componentDidMount() {
         const _URL = "https://globalcurrencies.xignite.com/xGlobalCurrencies.json/GetBars";
@@ -90,14 +90,14 @@ export default class Ave extends Component {
 
         const response = await fetch(_URL + "?" + params);
         const data = await response.json();
-        this.setState({rate: data, loading: false})
+        this.setState({rates: data, loading: false})
     }
 
  render() {
         const _BASE_VALUE = 1;
         return (
             <div>
-                {this.state.loading || !this.state.rate ? (
+                {this.state.loading || !this.state.rates ? (
                     <div>
                         <div className="card blue lighten-5">
                             <div className="card-content">
@@ -132,7 +132,7 @@ export default class Ave extends Component {
                                     <tr>
                                         <td></td>
                                         <td>{_BASE_VALUE}</td>
-                                        <td>{this.state.rate[0].Average}</td>
+                                        <td>{this.state.rates[0].Average}</td>
                                     </tr>
                                     </tbody>
                                 </table>

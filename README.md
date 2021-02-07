@@ -1,2 +1,2 @@
-# forex-rate-recorder
+# forex-rates-recorder
 Forex Rate Recorder
