@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Navbar from "./Navbar";
 import High from "./High";
 import Low from "./Low";
-import Average from "./Average";
+import Ave from "./Ave";
 
 export default class Home extends Component {
     render() {
@@ -14,7 +14,7 @@ export default class Home extends Component {
                         <div className="col s12 m8 l9">
                             <High/>
                             <Low/>
-                            <Average/>
+                            <Ave/>
                         </div>
                     </div>
                 </div>

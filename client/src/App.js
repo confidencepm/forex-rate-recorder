@@ -6,7 +6,7 @@ import 'materialize-css/'
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import High from "./components/High";
 import Low from "./components/Low";
-import Average from "./components/Average";
+import Ave from "./components/Ave";
 import Home from "./components/Home";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
           <Switch>
               <Route path="/latest-high-price" component={High} />
               <Route path="/latest-low-price" component={Low} />
-              <Route path="/average-closing-price" component={Average} />
+              <Route path="/average-closing-price" component={Ave} />
           </Switch>
         </>
       </Router>
