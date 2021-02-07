@@ -14,7 +14,7 @@ export default class High extends Component {
         params.append("Symbol", "EURUSD");
         params.append("AsOfDate", "2/5/2021");
         params.append("StartTime", "09:00");
-        params.append("EndTime", "09:10");
+        params.append("EndTime", "09:02");
         params.append("PriceType", "Mid");
         params.append("TickPrecision", "Minute");
         params.append("TickPeriods", "1");
@@ -64,14 +64,14 @@ export default class High extends Component {
                                             </tr>
                                             </thead>
                                             {this.state.rates.map(rates => (
-                                                <tbody>
-                                                <tr>
-                                                    <td>{rates.EndDate}</td>
-                                                    <td>{rates.EndTime}</td>
-                                                    <td>{_BASE_VALUE} : {rates.High}</td>
-                                                    <td>{_BASE_VALUE} : {rates.Low}</td>
-                                                    <td>{_BASE_VALUE} : {rates.Average}</td>
-                                                </tr>
+                                                <tbody key={rates.EndTime}>
+                                                    <tr>
+                                                        <td>{rates.EndDate}</td>
+                                                        <td>{rates.EndTime}</td>
+                                                        <td>{_BASE_VALUE} : {rates.High}</td>
+                                                        <td>{_BASE_VALUE} : {rates.Low}</td>
+                                                        <td>{_BASE_VALUE} : {rates.Average}</td>
+                                                    </tr>
                                                 </tbody>
                                             ))}
                                         </table>
