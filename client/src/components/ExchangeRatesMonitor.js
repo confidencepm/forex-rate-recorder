@@ -1,4 +1,17 @@
+import Axios from 'axios';
 import React, {Component} from 'react';
+
+const _BASE_VALUE = 1;
+const _URL = "https://globalcurrencies.xignite.com/xGlobalCurrencies.json/GetBars";
+        const params = new URLSearchParams();
+        params.append("Symbol", "EURUSD");
+        params.append("AsOfDate", "2/3/2021");
+        params.append("StartTime", "09:00");
+        params.append("EndTime", "09:02");
+        params.append("PriceType", "Mid");
+        params.append("TickPrecision", "Minute");
+        params.append("TickPeriods", "1");
+        params.append("_token", "F28236C40C064112BC00BCEAC3EB4B4B");
 
 export default class ExchangeRatesMonitor extends Component {
     constructor(props) {
@@ -9,24 +22,23 @@ export default class ExchangeRatesMonitor extends Component {
         }
     }
     async componentDidMount() {
-        const _URL = "https://globalcurrencies.xignite.com/xGlobalCurrencies.json/GetBars";
-        const params = new URLSearchParams();
-        params.append("Symbol", "EURUSD");
-        params.append("AsOfDate", "2/3/2021");
-        params.append("StartTime", "09:00");
-        params.append("EndTime", "09:02");
-        params.append("PriceType", "Mid");
-        params.append("TickPrecision", "Minute");
-        params.append("TickPeriods", "1");
-        params.append("_token", "BF6BCD97131144FE84FA65A70DFC2B56");
-
         const response = await fetch(_URL + "?" + params);
         const data = await response.json();
         this.setState({rates: data, loading: false});
-        console.log(this.state.rates);
     }
     render() {
-        const _BASE_VALUE = 1;
+
+        const addRates = () => {
+            Axios.post("http://localhost:3001/store", {
+                date: this.state.rates.EndDate,
+                time: this.state.rates.EndTime,
+                high: this.state.rates.High,
+                low: this.state.rates.Low,
+                average: this.state.rates.Average,
+              }).then(() => {
+                  console.log("success");
+              })
+        }
         return (
             <div>
                 {this.state.loading || !this.state.rates ? (
@@ -49,6 +61,7 @@ export default class ExchangeRatesMonitor extends Component {
                                 <h5 className="mt-bottom">
                                     <strong>EURUSD</strong>
                                 </h5>
+                                <button onClick={addRates} className="waves-effect light-blue darken-4 btn-small"><i className="material-icons right">save</i>Store Exchange Rates</button>
                             </div>
                             <div className="card-action">
                                 <div>

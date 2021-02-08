@@ -13,7 +13,7 @@ const db = mysql.createConnection({
     database: 'ExchangeRateDatabase'
 });
 
-app.post('/create', (req, res) => {
+app.post('/store', (req, res) => {
     const date = req.body.date;
     const time = req.body.time;
     const high = req.body.high;
