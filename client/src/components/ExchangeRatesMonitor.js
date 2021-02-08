@@ -7,11 +7,11 @@ const _URL = "https://globalcurrencies.xignite.com/xGlobalCurrencies.json/GetBar
         params.append("Symbol", "EURUSD");
         params.append("AsOfDate", "2/3/2021");
         params.append("StartTime", "09:00");
-        params.append("EndTime", "09:02");
+        params.append("EndTime", "10:40");
         params.append("PriceType", "Mid");
         params.append("TickPrecision", "Minute");
         params.append("TickPeriods", "1");
-        params.append("_token", "F28236C40C064112BC00BCEAC3EB4B4B");
+        params.append("_token", "0F3F25A225AC4CD39FDADF28D5951993");
 
 export default class ExchangeRatesMonitor extends Component {
     constructor(props) {
